@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Custom
+Data/*.tgz
+Data/Datasplit/*
+Data/*.mat
+Data/jpg/*
+*nohup.out 
