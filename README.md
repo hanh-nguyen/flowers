@@ -25,7 +25,7 @@ The dataset comes from the [102 Category Flower Dataset](https://www.robots.ox.a
 
     * [A. Gurnani et al](https://arxiv.org/abs/1708.03763) developed two models that used CNN GoogleNet and AlexNet. Their accuracies are 47.15% and 43.39% respectively.
 
-    * [H. Hiary et all](https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/iet-cvi.2017.0155) proposed a two step approach. The first step was to localize the flower by detecting the minimum bounding box around it, which used a fully convolutional network initialized by the VGG-16 model. The second step developed a CNN model initialized by the first model. They also used data augmentation. The accuracy with and without augmentation were 99% and 95.4%.
+    * [H. Hiary et al](https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/iet-cvi.2017.0155) proposed a two step approach. The first step was to localize the flower by detecting the minimum bounding box around it, which used a fully convolutional network initialized by the VGG-16 model. The second step developed a CNN model initialized by the first model. They also used data augmentation. The accuracy with and without augmentation were 99% and 95.4% respectively.
 
 
 |          Model           | Train accuracy | Val accuracy | Test accuracy |
@@ -42,13 +42,13 @@ The dataset comes from the [102 Category Flower Dataset](https://www.robots.ox.a
         2. Two different categories can share similar colors or shapes. For example, canterbury bells and monkshood, or petunia and azalea.
         3. Surrounding objects such as grass or leaves
 
-    * The model shows some signs of overfitting. We want to introduce more regularization, including dropout.
+    * The model shows some signs of overfitting. We want to introduce more **regularization**.
 
-    * To improve model accuracy, we can collect more images or try data augmentation, meaning applying random transformations such as rotation, flip, crop, brightness or contrast on the training data. However, given the similarity among flowers, it is helpful to have some flower expertise to choose useful transformations.
+    * To improve model accuracy, we can collect more images or try **data augmentation**, meaning applying random transformations such as rotation, flip, crop, brightness or contrast on the training data. However, given the similarity among flowers, it is helpful to have some flower expertise to choose useful transformations.
 
-    * The model used Resnet-50 for transfer learning. Resnet-50 was trained on the ImageNet dataset which has very few flower types. We could use a different network, for example Inception V3, which was trained on the iNaturalist (iNat) 2017 dataset of over 5,000 different species of plants and animals.
+    * The model used Resnet-50 for transfer learning. Resnet-50 was trained on the ImageNet dataset which has very few flower types. We could use a **different pre-trained network**, for example Inception V3, which was trained on the iNaturalist (iNat) 2017 dataset of over 5,000 different species of plants and animals.
 
-    * In this model, we choose to freeze all the layers from Resnet-50. We could try to fine-tuning, which consists of unfreezing the entire model we obtained above (or part of it), and re-training it on the new data with a very low learning rate. This can potentially achieve meaningful improvements, by incrementally adapting the pretrained features to the new data.
+    * In this model, we choose to freeze all the layers from Resnet-50. We could try to **fine-tuning**, which consists of unfreezing the entire model we obtained above (or part of it), and re-training it on the new data with a very low learning rate. This can potentially achieve meaningful improvements, by incrementally adapting the pretrained features to the new data.
     
-    * The model is used to classify a flower category from an image that has one flower in it. We need a model to identify if an image has a flower in it, or better yet, a model to be able to tell how many flowers are in an image. Being able to detect a flower also helps to detect the region around the flower in an image, and then uses the cropped images to build the classifier.
+    * The model is used to classify a flower category from an image that has one flower in it. We need a **detection model** to identify if an image has a flower in it, or better yet, a model to be able to tell how many flowers are in an image. Being able to detect a flower also helps to detect the region around the flower in an image, and then uses the cropped images to build the classifier.
 
