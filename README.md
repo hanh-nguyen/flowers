@@ -37,7 +37,7 @@ The dataset comes from the [102 Category Flower Dataset](https://www.robots.ox.a
 * __Weaknesses and improvement for the model with transfer learning from Resnet50__
     * The model has an accuracy rate of 81%. In terms of categorical level, 20 categories have accuracy rate less than 75% and the lowest individual category accuracy rate is 35%.
 
-    * I looked into three flower categories that had the lowest model accuracy: canterbury bells, siam tulip, and petunia, which were predicted mostly incorrectly as monkshood, sweet pea, azalea respectively. Their images present challenges that could be difficult for human eyes as well as the models.
+    * **Error analysis:** I looked into three flower categories that had the lowest model accuracy: canterbury bells, siam tulip, and petunia, which were predicted mostly incorrectly as monkshood, sweet pea, azalea respectively. Their images present challenges that could be difficult for human eyes as well as the models.
         1. A flower category can have different colors. For example, canterbury bells can be purple, pink, or white; sweet pea can have a mix of white, pink, purple and orange.
         2. Two different categories can share similar colors or shapes. For example, canterbury bells and monkshood, or petunia and azalea.
         3. Surrounding objects such as grass or leaves
